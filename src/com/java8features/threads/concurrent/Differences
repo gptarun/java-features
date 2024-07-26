@@ -1,0 +1,17 @@
+Differences Between Future and CompletableFuture
+Completion and Blocking:
+
+Future: You need to call future.get() to retrieve the result, which blocks the calling thread until the result is available.
+CompletableFuture: Provides non-blocking methods like thenApply, thenAccept, and thenRun to handle the result asynchronously.
+Manual Completion:
+
+Future: Cannot be manually completed.
+CompletableFuture: Can be manually completed using methods like complete().
+Exception Handling:
+
+Future: Exception handling is done using try-catch blocks around the get() method.
+CompletableFuture: Provides methods like exceptionally and handle to handle exceptions in a non-blocking manner.
+Chaining and Composition:
+
+Future: Limited chaining and composition capabilities.
+CompletableFuture: Supports chaining and composition of multiple asynchronous operations using methods like thenCompose and thenCombine.
