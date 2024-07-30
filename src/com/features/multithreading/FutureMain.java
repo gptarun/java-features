@@ -1,7 +1,10 @@
-package com.java8features.threads.concurrent;
+package com.features.multithreading;
 
 import java.util.concurrent.*;
 
+/**
+ * Java 1.5 has introduced Future and FutureTask(Concrete Class of RunnableFuture, Future & Runnable interfaces)
+ */
 public class FutureMain {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
