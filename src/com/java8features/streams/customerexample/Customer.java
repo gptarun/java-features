@@ -1,4 +1,4 @@
-package com.java8features;
+package com.java8features.streams.customerexample;
 
 import java.util.Date;
 

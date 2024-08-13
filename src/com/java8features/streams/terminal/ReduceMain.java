@@ -1,9 +1,10 @@
-package com.java8features.streams;
+package com.java8features.streams.terminal;
 
-public class MapMain {
+public class ReduceMain {
     //****************************************************
     //
-    //  use map() to transform data
+    // reduce() to aggregate the data
     //
     //****************************************************
+
 }

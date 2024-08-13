@@ -1,4 +1,4 @@
-package com.java8features;
+package com.java8features.streams.customerexample;
 
 @FunctionalInterface
 public interface CustomerFunInterface {

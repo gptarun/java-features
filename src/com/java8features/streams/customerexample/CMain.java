@@ -1,4 +1,4 @@
-package com.java8features;
+package com.java8features.streams.customerexample;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +20,7 @@ class CMain {
         //
         //****************************************************
         Map<Long, Customer> c = customers.stream().collect(Collectors.toMap(o -> o.getId(), v -> v));
+        Map<Long, Customer> practice = customers.stream().collect(Collectors.toMap(Customer::getId, a -> a));
         c.entrySet().forEach(System.out::println);
         System.out.println("--------------");
         sortingCustomerListTreeMap();

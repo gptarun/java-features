@@ -1,6 +1,6 @@
 package com.java8features.optional;
 
-import com.java8features.Customer;
+import com.java8features.streams.customerexample.Customer;
 
 import java.util.Date;
 import java.util.Optional;

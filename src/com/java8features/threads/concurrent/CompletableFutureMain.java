@@ -17,7 +17,7 @@ public class CompletableFutureMain {
          *
          * Future: Cannot be manually completed.
          * CompletableFuture: Can be manually completed using methods like complete().
-         * future.complete("It's completed"); // then it won't print Line No 22.
+         * future.complete("It's completed"); // then it won't print Line No 24.
          *
          * CompletableFuture: Provides methods like exceptionally and handle to handle exceptions in a non-blocking manner.
          */
