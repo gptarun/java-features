@@ -1,7 +1,7 @@
 package com.java9features.reactivestreams;
 
 import java.util.concurrent.SubmissionPublisher;
-import java.util.concurrent.TimeUnit;
+//import java.util.concurrent.TimeUnit;
 
 public class ReactiveStreamsMain {
     public static void main(String[] args) throws InterruptedException {
@@ -14,13 +14,16 @@ public class ReactiveStreamsMain {
 
         for (String item : items) {
             publisher.submit(item);
-            TimeUnit.SECONDS.sleep(1); // Simulate delay
+            System.out.println("Published: " + item);
+            Thread.sleep(1000);
+//            TimeUnit.SECONDS.sleep(1); // Simulate delay
         }
 
         publisher.close();
 
         // Wait for all items to be processed
-        TimeUnit.SECONDS.sleep(3);
+        Thread.sleep(3000);
+//        TimeUnit.SECONDS.sleep(3);
     }
 }
 // Streams: collection of objects per operations perform karne k liye hai

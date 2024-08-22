@@ -8,6 +8,7 @@ public class StreamMain {
     public static void main(String[] args) {
 //        printStreamUsingIndex();
         printUniqueChars();
+        squareAddOneFindFirst();
 
         // All stream examples in one
         List<List<String>> listOfLists = Arrays.asList(
@@ -71,6 +72,14 @@ public class StreamMain {
     public static void reversingStream() {
         List<String> value = List.of("Alpha", "Beta", "Gamma", "Alpha", "Beta");
         value.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+    }
+
+    public static void squareAddOneFindFirst() {
+        List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> val = nums.stream().map(a -> a * a + 1).filter(num -> num % 2 == 0).findFirst();
+        System.out.println();
+        System.out.println("c " + val.isPresent());
+        System.out.println(val.get());
     }
 
 }

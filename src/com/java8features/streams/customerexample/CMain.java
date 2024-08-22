@@ -9,11 +9,12 @@ import java.util.stream.Collectors;
 class CMain {
 
     public static void main(String[] args) {
-        Customer customer = new Customer(1L, "Tarun", new Date());
-        Customer customer1 = new Customer(2L, "Gupta", new Date());
-        Customer customer2 = new Customer(3L, "Kishan", new Date());
+        Customer customer = new Customer(1L, "Tarun", new Date(), "HR");
+        Customer customer1 = new Customer(2L, "Gupta", new Date(), "HR");
+        Customer customer2 = new Customer(3L, "Tarun", new Date(), "SALES");
+        Customer customer3 = new Customer(5L, "Tarun", new Date(), "HR");
 
-        List<Customer> customers = List.of(customer, customer1, customer2);
+        List<Customer> customers = List.of(customer, customer1, customer2, customer3);
         //****************************************************
         //
         // Converting List of customers to Map
@@ -24,6 +25,9 @@ class CMain {
         c.entrySet().forEach(System.out::println);
         System.out.println("--------------");
         sortingCustomerListTreeMap();
+
+        System.out.println("-------GROUP BY-------");
+        groupByName(customers);
         //        Customer customer3 = null;
         //        System.out.println(Optional.ofNullable(customer3));
 
@@ -59,6 +63,12 @@ class CMain {
             e.printStackTrace();
         }
         return new Date();
+    }
+
+    public static void groupByName(List<Customer> customers) {
+        Map<String, Long> mapCount = customers.stream().filter(emp -> emp.getDepartment().equals("HR"))
+                .collect(Collectors.groupingBy(obj -> obj.getName(), Collectors.counting()));
+        System.out.println(mapCount);
     }
 }
 
