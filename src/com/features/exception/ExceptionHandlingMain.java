@@ -5,7 +5,7 @@ package com.features.exception;
  * MORE INFO: Refer below functions
  */
 public class ExceptionHandlingMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         /* *********** CASE 1 *************/
         System.out.println("try-finally-Test");
         System.out.println(tryFinallyTest());
@@ -18,7 +18,13 @@ public class ExceptionHandlingMain {
         System.out.println("try-catch-finally-without-exception-Test");
         System.out.println(tryCatchFinallyWithoutException());
 
+        //NOTE: Need to comment either CASE 4 or CASE 5 to check the output
         /* *********** CASE 4 *************/
+        System.out.println("try-Catch-finally-throw-exception");
+        tryCatchFinallyThrow();
+
+        //NOTE: Need to comment either CASE 4 or CASE 5 to check the output
+        /* *********** CASE 5 *************/
         System.out.println("try-finally-unhandled-exception-Test");
         System.out.println(tryCatchFinallyUnhandledException());
     }
@@ -89,6 +95,7 @@ public class ExceptionHandlingMain {
      * Output:
      * Test11
      * Test13
+     *
      * @return nothing
      * @throws ArithmeticException: / by zero
      */
@@ -99,6 +106,25 @@ public class ExceptionHandlingMain {
             return i;
         } finally {
             System.out.println("Test13");
+        }
+    }
+
+
+    /**
+     * NOTES: Function will throw the exception "divide by Zero"
+     * Output:
+     * tryCatchFinallyThrow
+     * Throw the exception
+     *
+     * @throws Exception in thread "main" java.lang.Exception
+     */
+    static void tryCatchFinallyThrow() throws Exception {
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            throw new Exception();
+        } finally {
+            System.out.println("tryCatchFinallyThrow");
         }
     }
 }
