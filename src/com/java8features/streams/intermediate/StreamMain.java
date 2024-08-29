@@ -1,6 +1,7 @@
 package com.java8features.streams.intermediate;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -36,6 +37,15 @@ public class StreamMain {
         // Print the final result
         System.out.println("Final Result:");
         result.forEach(System.out::println);
+
+        // Input: String s = "string data to count each character";
+        // Output: {s=1, t=5, r=3, i=1, n=2, g=1,  =5, d=1, a=5, o=2, c=4, u=1, e=2, h=2}
+        System.out.println(stringCharacterDataCount());
+    }
+
+    private static Map<Character, Long> stringCharacterDataCount() {
+        String s = "string data to count each character";
+        return s.chars().sorted().mapToObj(c -> (char)c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
     }
 
     /**
