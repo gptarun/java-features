@@ -18,12 +18,19 @@ public class ExceptionHandlingMain {
         System.out.println("try-catch-finally-without-exception-Test");
         System.out.println(tryCatchFinallyWithoutException());
 
+        //****************** BELOW CODES WILL BREAK THE FLOW ******************
+
         //NOTE: Need to comment either CASE 4 or CASE 5 to check the output
+        /* *********** CASE 6 *************/
+        System.out.println("try-print-throw-catch-print-finally-exception-Test");
+        tryPrintThrowCatchPrintFinallyExceptionTest();
+
+        //NOTE: Need to comment either CASE 4 or CASE 5 or CASE 6 to check the output
         /* *********** CASE 4 *************/
         System.out.println("try-Catch-finally-throw-exception");
         tryCatchFinallyThrow();
 
-        //NOTE: Need to comment either CASE 4 or CASE 5 to check the output
+        //NOTE: Need to comment either CASE 4 or CASE 5 or CASE 6 to check the output
         /* *********** CASE 5 *************/
         System.out.println("try-finally-unhandled-exception-Test");
         System.out.println(tryCatchFinallyUnhandledException());
@@ -126,5 +133,27 @@ public class ExceptionHandlingMain {
         } finally {
             System.out.println("tryCatchFinallyThrow");
         }
+    }
+
+    /**
+     * NOTES: Function will throw the NullPointerException: Cannot invoke "Object.toString()" because "exceptionHandlingMain" is null
+     * Output:
+     * tryPrintThrowCatchPrintFinallyExceptionTest
+     * Throw the exception
+     */
+    static void tryPrintThrowCatchPrintFinallyExceptionTest() {
+        try {
+            dummy();
+        } catch (Exception e) {
+            System.out.println("Hello");
+            throw e;
+        } finally {
+            System.out.println("tryPrintThrowCatchPrintFinallyExceptionTest");
+        }
+    }
+
+    private static String dummy() {
+        ExceptionHandlingMain exceptionHandlingMain = null;
+        return exceptionHandlingMain.toString();
     }
 }

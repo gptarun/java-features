@@ -9,4 +9,10 @@ package com.java8features.functionalinterface;
 @FunctionalInterface
 public interface MyInterface2 extends MyInterface1 {
     void printArray();
+    static void printing() {
+
+    }
+    default void yo() {
+        System.out.println("printing yo");
+    }
 }

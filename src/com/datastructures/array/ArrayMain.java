@@ -1,6 +1,7 @@
 package com.datastructures.array;
 
 import java.util.Arrays;
+import java.util.TreeSet;
 
 /**
  * Solving Array related LeetCode questions
@@ -28,8 +29,31 @@ public class ArrayMain {
          * K Radius Subarray Averages
          * Test Case 1: int[] nums = {7, 4, 3, 9, 1, 8, 5, 2, 6};
          */
-        int[] nums = {100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000};
-        Arrays.stream(getAverages(nums, 20)).forEach(System.out::println);
+//        int[] nums = {100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000, 100000000};
+//        Arrays.stream(getAverages(nums, 20)).forEach(System.out::println);
+
+        /*
+         * Reversing an Array
+         */
+        int[] nums = {7, 4, 3, 9, 1, 8, 5, 2, 6};
+        Arrays.stream(reverseArray(nums)).forEach(System.out::println);
+    }
+
+
+    /*
+     * Reversing an Array
+     */
+    private static int[] reverseArray(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
+        return nums;
     }
 
     /*
@@ -104,7 +128,7 @@ public class ArrayMain {
                     left++;
                 }
                 System.out.println(value);
-                ans[i] = (int)value / x;
+                ans[i] = (int) value / x;
             }
         }
         return ans;

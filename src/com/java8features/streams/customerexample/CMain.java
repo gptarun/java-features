@@ -34,6 +34,15 @@ class CMain {
 //        customers.stream().map(obj -> {obj.setDob(formatDate(obj.getDob()));return obj;}).forEach(System.out::println);
 //        customers.stream().peek(obj -> obj.setDob(formatDate(obj.getDob()))).forEach(System.out::println);
 
+
+        /**
+         * Highest ID and Lowest ID of the Customer || Can be used for other fields like Salary
+         */
+        System.out.println("---------------Highest---Lowest---Value---------");
+        Long maxId = customers.stream().max(Comparator.comparing(Customer::getId)).get().getId();
+        Long minId = customers.stream().min(Comparator.comparing(Customer::getId)).get().getId();
+        System.out.println("Max - Min" + maxId + " - " + minId);
+
     }
 
     /**

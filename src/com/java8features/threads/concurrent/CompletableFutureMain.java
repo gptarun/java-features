@@ -6,7 +6,7 @@ public class CompletableFutureMain {
     public static void main(String[] args) {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -23,5 +23,50 @@ public class CompletableFutureMain {
          */
         future.thenAccept(System.out::println);
         future.join();
+
+        /*
+         * Key functions provided by CompletableFuture in Java
+         */
+        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> "supplyAsync example").thenApplyAsync(String::toUpperCase);
+        future1.thenAccept(System.out::println);
+        future1.join();
+
+        /*
+         * EXCEPTIONALLY in CompletableFuture
+         */
+        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> 5 / 0);
+        future2.exceptionally(throwable -> {
+//            throwable.printStackTrace();
+            return 0;
+        });
+
+
+        CompletableFuture<Integer> future3 = CompletableFuture.supplyAsync(() -> {
+            // Some long-running operation
+            return 10;
+        });
+
+        CompletableFuture<Integer> future4 = CompletableFuture.supplyAsync(() -> {
+            int result = 10 / 0; // Causes an ArithmeticException
+            return result;
+        });
+
+        CompletableFuture<Integer> future5 = CompletableFuture.supplyAsync(() -> {
+            // Some long-running operation
+            return 20;
+        });
+
+        CompletableFuture<Void> allFutures = CompletableFuture.allOf(future3, future4, future5);
+
+        allFutures.exceptionally(ex -> {
+            System.out.println("Exception occurred: " + ex.getMessage());
+            return null; // Default value to return if there's an exception
+        }).thenRun(() -> {
+            // All futures completed
+            int result1 = future3.join();
+            int result2 = future4.join();
+            int result3 = future5.join();
+            System.out.println(result1 + ", " + result2 + ", " + result3);
+        });
     }
 }

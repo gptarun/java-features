@@ -11,4 +11,8 @@ public interface MyInterface1 {
     default void printString() {
 
     }
+
+    static void printString1() {
+
+    }
 }
