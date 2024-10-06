@@ -1,4 +1,4 @@
-package com.java8features.threads;
+package com.features.multithreading;
 
 public class ThreadByRunnable implements Runnable {
     @Override

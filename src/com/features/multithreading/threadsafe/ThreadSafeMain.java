@@ -1,4 +1,4 @@
-package com.java8features.threads.threadsafe;
+package com.features.multithreading.threadsafe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,7 @@ public class ThreadSafeMain {
     public static void main(String[] args) {
         Thread t1 = new Thread();
         Thread t2 = new Thread();
+        threadLocalTest();
     }
     ArrayList<Integer> list = new ArrayList<>(); //Not thread safe
     List<Integer> listThreadSafe = new CopyOnWriteArrayList<>(); //thread safe
@@ -25,4 +26,15 @@ public class ThreadSafeMain {
         }
     }
 
+    /**
+     * Since Java 1.2
+     * Variable -> Copy for each thread, visibility to single thread only
+     */
+    private static void threadLocalTest() {
+        ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+        threadLocal.set(1);
+        System.out.println(threadLocal.get());
+        threadLocal.remove();
+        System.out.println(threadLocal.get());
+    }
 }

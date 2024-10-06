@@ -1,9 +1,9 @@
-package com.java8features.threads;
+package com.features.multithreading;
 
 public class ThreadMain {
     public static void main(String[] args) {
-        ThreadByRunnable threadClass = new ThreadByRunnable();
-        Thread thread = new Thread(threadClass);
+        ThreadByRunnable threadByRunnable = new ThreadByRunnable();
+        Thread thread = new Thread(threadByRunnable);
         //****************************************************
         //
         // why not threadClass.run() -> this will execute the Runnable.run()
@@ -13,9 +13,17 @@ public class ThreadMain {
         // which creates the new thread
         //
         //****************************************************
-//         thread.start();
+        thread.start();
 
         ThreadByClass threadByClass = new ThreadByClass();
         threadByClass.start();
+
+        /**
+         * Java 8 way for calling run method from Runnable class
+         */
+        Runnable runnable = () -> {
+            System.out.println("Runnable with Lambda Expression");
+        };
+        new Thread(runnable).start();
     }
 }

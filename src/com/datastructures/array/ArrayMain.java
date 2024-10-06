@@ -1,7 +1,6 @@
 package com.datastructures.array;
 
 import java.util.Arrays;
-import java.util.TreeSet;
 
 /**
  * Solving Array related LeetCode questions
@@ -132,5 +131,30 @@ public class ArrayMain {
             }
         }
         return ans;
+    }
+
+    /**
+     * Searching the target number in nums array with lesser complexity due to n/2
+     *
+     * @param nums   array of integers
+     * @param target find the provided value
+     * @return integer position
+     */
+    public static int searchInsert(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            System.out.println(mid);
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
     }
 }

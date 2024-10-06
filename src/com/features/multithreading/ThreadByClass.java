@@ -1,4 +1,4 @@
-package com.java8features.threads;
+package com.features.multithreading;
 
 public class ThreadByClass extends Thread {
     public void run() {
