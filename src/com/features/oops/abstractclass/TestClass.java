@@ -1,6 +1,6 @@
 package com.features.oops.abstractclass;
 
-public class TestClass extends MyClass {
+public class TestClass extends MyAbstractClass implements MyInterface {
 
     public TestClass(String val) {
         super(val);
@@ -8,6 +8,6 @@ public class TestClass extends MyClass {
 
     @Override
     public void displayValue() {
-        System.out.println("Yo!");
+        System.out.println("Yo! + " + MyInterface.p);
     }
 }

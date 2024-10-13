@@ -135,6 +135,8 @@ public class ArrayMain {
 
     /**
      * Searching the target number in nums array with lesser complexity due to n/2
+     * <p>
+     * BINARY SEARCH
      *
      * @param nums   array of integers
      * @param target find the provided value
@@ -143,7 +145,6 @@ public class ArrayMain {
     public static int searchInsert(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-
         while (left <= right) {
             int mid = (left + right) / 2;
             System.out.println(mid);
@@ -156,5 +157,34 @@ public class ArrayMain {
             }
         }
         return -1;
+    }
+
+    /**
+     * find repeating number in an array
+     * Three approaches which are easy to implement:
+     * 1. Set -> add -> bool -> false? -> print
+     * 2. Map -> put -> getOrDefault -> (get, 0) +1, print map if value > 1
+     * 3. int a -> int b + 1 index, now keep the count of each element of a in next index of b => B[A[i]]++;
+     */
+    public static void findRepeatingElementInArray() {
+        int A[] = {1, 6, 4, 6, 4, 8, 2, 4, 1, 1};
+
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] > max)
+                max = A[i];
+        }
+
+        int B[] = new int[max + 1]; // Here initializing B's index with Max element in A i.e A's max = 200, B.length -> 200
+
+        for (int i = 0; i < A.length; i++) {
+            // increment in array B for every integer in A.
+            B[A[i]]++;
+        }
+        for (int i = 0; i <= max; i++) {
+            // output only if element is more than 1 time in array A.
+            if (B[i] > 1)
+                System.out.println(i + "-" + B[i]);
+        }
     }
 }
