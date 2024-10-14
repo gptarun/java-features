@@ -1,8 +1,10 @@
 package com.java8features.streams;
 
 import com.entity.AccountTransaction;
+import com.solid.Employee;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class InterviewQuestionsMain {
     public static void main(String[] args) {
@@ -66,4 +68,30 @@ public class InterviewQuestionsMain {
         }
         myList.forEach(System.out::println);
     }
+
+    /**
+     * Q. Print Year: Total Salary from the Employees
+     */
+    private static void printYearTotalSalary() {
+        List<Employee> employees = getSubEmployees();
+        //Two approaches for achieving it
+//        Map<Integer, Integer> eMap = employees.stream().collect(Collectors.groupingBy(Employee::getYear, Collectors.summingDouble(Employee::getSalary)));
+        Map<Integer, Integer> eMap = employees.stream().collect(Collectors.toMap(Employee::getYear, Employee::getSalary, Integer::sum));
+        eMap.entrySet().forEach(System.out::println);
+    }
+
+    public static List<Employee> getSubEmployees() {
+        Employee employee = new Employee(1, "", "", 1000, 2000);
+        Employee employee1 = new Employee(2, "", "", 2000, 2000);
+        Employee employee2 = new Employee(3, "", "", 3000, 2002);
+        Employee employee3 = new Employee(4, "", "", 1500, 2000);
+
+        List<Employee> employees = new ArrayList<>();
+        employees.add(employee);
+        employees.add(employee1);
+        employees.add(employee2);
+        employees.add(employee3);
+        return employees;
+    }
+
 }

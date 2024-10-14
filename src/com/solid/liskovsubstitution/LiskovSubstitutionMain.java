@@ -6,11 +6,15 @@ package com.solid.liskovsubstitution;
  */
 public class LiskovSubstitutionMain {
     public static void main(String[] args) {
-        Vehicle vehicle = new Vehicle();
-        Vehicle car = new Car();
-        Vehicle bike = new Bike();
-        vehicle.start();
-        car.start();
-        bike.start(); // here it is failing this principle, as it is throwing an exception i.e. breaking the flow
+        Motorcycle motorcycle = new Motorcycle(false, 15);
+        VehicleCreation vehicleCreation = new VehicleCreation();
+        vehicleCreation.setBike(motorcycle);
+        vehicleCreation.getBike().startEngine();
+        vehicleCreation.getBike().accelerate();
+        System.out.println(motorcycle.getSpeed());
+
+        Bicycle bicycle = new Bicycle(1);
+        vehicleCreation.setBike(bicycle);
+//        vehicleCreation.getBike().startEngine();
     }
 }
