@@ -2,7 +2,7 @@ package com.features.oops.abstractclass;
 
 public class AbstractMain {
     public static void main(String[] args) {
-        MyClass myClass = new MyClass("vv") {
+        MyAbstractClass myClass = new MyAbstractClass("vv") {
             public void displayValue() {
                 System.out.println("Hello");
             }

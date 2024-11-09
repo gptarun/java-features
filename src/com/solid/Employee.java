@@ -5,6 +5,7 @@ public class Employee {
     String name;
     String department;
     int salary;
+    int year;
 
     public Employee() {
     }
@@ -14,6 +15,14 @@ public class Employee {
         this.name = name;
         this.department = department;
         this.salary = salary;
+    }
+
+    public Employee(int id, String name, String department, int salary, int year) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+        this.year = year;
     }
 
     public int getId() {
@@ -46,5 +55,13 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }
