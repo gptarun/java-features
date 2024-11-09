@@ -29,6 +29,8 @@ public class FutureMain {
             System.out.println(res);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            executorService.shutdown();
         }
     }
 }

@@ -21,14 +21,19 @@ public class ShallowDeepMain {
         address.id = 1;
         studentShallow.address = address;
         StudentShallow studentShallow1 = studentShallow.clone();
+        studentShallow1.id = 5;
         studentShallow1.address.id = 2;
 
         /*
          * Expected output:
+         * 1
          * 2
+         * 5
          * 2
          */
+        System.out.println(studentShallow.id);
         System.out.println(studentShallow.address.id);
+        System.out.println(studentShallow1.id);
         System.out.println(studentShallow1.address.id);
 
 

@@ -14,3 +14,4 @@ public class LiskovSubstitutionMain {
         bike.start(); // here it is failing this principle, as it is throwing an exception i.e. breaking the flow
     }
 }
+ 

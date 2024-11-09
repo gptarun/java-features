@@ -15,6 +15,8 @@ public class ExecutorServiceMain {
             System.out.println(result.get());
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
+        } finally {
+            executorService.shutdown();
         }
     }
 }
