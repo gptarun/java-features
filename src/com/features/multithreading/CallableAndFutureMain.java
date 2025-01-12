@@ -21,6 +21,14 @@ import java.util.concurrent.FutureTask;
  * while for a Callable, the call() method needs to be implemented which returns a result on completion.
  * Note that a thread can’t be created with a Callable, it can only be created with a Runnable.
  * Another difference is that the call() method can throw an exception whereas run() cannot.
+ * <p>
+ * Finds out that we need Callable to return the result and this result will be stored into Future
+ * In Summary:
+ * Callable is used to define a task that will be executed asynchronously and can return a result.
+ * Future is used to represent the outcome of that asynchronous computation, providing methods to retrieve the result or cancel the task.
+ * Another point:
+ * Callable and Runnable are being used to submit as a task with Executor service
+ * </p>
  */
 public class CallableAndFutureMain implements Callable<Integer> {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
