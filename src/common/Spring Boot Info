@@ -1,0 +1,2 @@
+@PathParam & @QueryParam are NOT Spring Annotations. They are JAX-RS annotation.
+Whereas only @RequestParam & @PathVariable are SPRING Annotations!!

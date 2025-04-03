@@ -3,6 +3,7 @@ package common.java8features.streams;
 import common.datastructures.gsprep.Employee;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class StreamPracticeMain {
@@ -56,6 +57,9 @@ public class StreamPracticeMain {
 
         //16. employee who works in Product Team and Is male member
         maleInProductTeam(employees);
+
+        //a. Need to find the highest IP count from the logs
+        getHighestIPCountFromLogs();
     }
 
     private static void maleAndFemale(List<Employee> employees) {
@@ -159,6 +163,27 @@ public class StreamPracticeMain {
         System.out.println("16---- employee who works in Product Team and Is male member-----");
         List<Employee> result = employees.stream().filter(e -> e.getDepartment().equalsIgnoreCase("Product Development") && e.getGender().equalsIgnoreCase("Male")).toList();
         result.forEach(System.out::println);
+    }
+
+    /**
+     * Need to find the highest IP count from the logs
+     * Output: 1.0.0.01, 1.0.0.03
+     */
+    private static void getHighestIPCountFromLogs() {
+        List<String> logs = Arrays.asList(
+                "1.0.0.01 - successfully receive the request",
+                "1.0.0.01 - connection closed",
+                "1.0.0.02 - receive the call",
+                "1.0.0.03 - some other logs",
+                "1.0.0.03 - receive the call"
+        );
+
+        Map<String, Long> logMap = logs.stream().map(o -> o.split("-")[0])
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        Long max = logMap.values().stream().max(Long::compare).orElse(0L);
+
+        logMap.entrySet().stream().filter(o -> o.getValue().longValue() == max).map(Map.Entry::getKey).toList().forEach(System.out::println);
     }
 
 

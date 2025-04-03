@@ -6,6 +6,9 @@ package common.features.exception;
  */
 public class ExceptionHandlingMain {
     public static void main(String[] args) throws Exception {
+        /* *********** interviewTrickyQuestion *************/
+        interviewTrickyQuestion();
+
         /* *********** CASE 1 *************/
         System.out.println("try-finally-Test");
         System.out.println(tryFinallyTest());
@@ -34,6 +37,20 @@ public class ExceptionHandlingMain {
         /* *********** CASE 5 *************/
         System.out.println("try-finally-unhandled-exception-Test");
         System.out.println(tryCatchFinallyUnhandledException());
+    }
+
+    private static void interviewTrickyQuestion() {
+        try {
+            String s = null;
+            s.equalsIgnoreCase("abc");
+        } catch (RuntimeException e) {
+            System.out.println("In catch");
+//            String s1 = null;
+//            s1.equalsIgnoreCase("abc");
+            System.exit(0);
+        } finally {
+            System.out.println("In finally");
+        }
     }
 
     /**
